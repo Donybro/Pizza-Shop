@@ -7,7 +7,7 @@
           Pizza-Shop
         </div>
         <div class="desc">
-          Самая вкусная <span class="extra">пицца</span> во вселенной
+          Самая вкусная <span class="extra">пицца</span> во вселенной.
         </div>
       </div>
     </div>

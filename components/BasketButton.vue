@@ -29,8 +29,9 @@ export default {
 
 .wrapper {
   display: flex;
-  width: 150px;
-  height: 50px;
+  width: 140px;
+  height: 45px;
+  box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
   padding: 15px 23px;

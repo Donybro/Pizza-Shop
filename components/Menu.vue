@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
     <div
-      v-for="category in categories"
+      v-for="category in menus"
       :key="category.name"
       class="category"
-      :class="{'active' : category.name===selectedCategory.name}"
-      @click="selectCategory(category)"
+      :class="{'active' : category.name===selectedMenu.name}"
+      @click="selectMenu(category)"
     >
       {{ category.label }}
     </div>
@@ -17,7 +17,7 @@ export default {
   name: 'Menu',
   data () {
     return {
-      categories: [
+      menus: [
         {
           name: 'pizza',
           label: 'Pizza'
@@ -39,15 +39,15 @@ export default {
           label: 'Contacts'
         }
       ],
-      selectedCategory: {}
+      selectedMenu: {}
     }
   },
   mounted () {
-    this.selectedCategory = this.categories[3]
+    this.selectedMenu = this.menus[0]
   },
   methods: {
-    selectCategory (category) {
-      this.selectedCategory = { ...category }
+    selectMenu (category) {
+      this.selectedMenu = { ...category }
     }
   }
 }
@@ -60,13 +60,12 @@ export default {
   background: #fff;
   display: flex;
   flex-wrap: wrap;
-  padding: 30px 60px;
-
+  padding: 10px 60px;
 }
 
 .category {
   margin-right: 30px;
-  padding: 14px 20px;
+  padding: 8px 20px;
   letter-spacing: 0.015em;
   font-weight: bold;
   font-size: 16px;

@@ -1,85 +1,85 @@
 <template>
-  <div ref="appMain" class="main" :style="paddingRight">
+  <div ref='appMain' class='main' :style='paddingRight'>
     <navbar />
-    <Menu />
-    <categories class="stickyMenu" />
-    <div class="productsWrapper">
-      <product-container v-for="(a,i) in 12" :key="i" :product="product" @selected="setSelectedProduct" />
+    <Menu @selected-menu='getData' />
+    <categories class='stickyMenu' />
+    <div class='loader' v-if='loading'>
+      <spinner size='huge' line-fg-color='#fd6900' />
     </div>
-    <dialog-menu :is-dialog-open="isDialogOpen" :selected-product="selectedProduct" @close-dialog="closeDialog" />
+    <div v-else class='productsWrapper'>
+      <product-container v-for='(product,i) in products' :key='i' :product='product' @selected='setSelectedProduct'
+                         class='product' />
+    </div>
+    <dialog-menu :is-dialog-open='isDialogOpen' :selected-product='selectedProduct' @close-dialog='closeDialog' />
   </div>
 </template>
 
 <script>
-import Navbar from '../components/Navbar'
-import Menu from '../components/Menu'
-import Categories from '../components/Categories'
-import ProductContainer from '../components/ProductContainer'
-import DialogMenu from '../components/DialogMenu'
+import Navbar from '../components/Navbar';
+import Menu from '../components/Menu';
+import Categories from '../components/Categories';
+import ProductContainer from '../components/ProductContainer';
+import DialogMenu from '../components/DialogMenu';
+import fakeApi from '../src/fakeApi';
+import Spinner from 'vue-simple-spinner';
 
 export default {
-  components: { DialogMenu, ProductContainer, Categories, Menu, Navbar },
-  data () {
+  components: { DialogMenu, ProductContainer, Categories, Menu, Navbar, Spinner },
+  data() {
     return {
       selectedProduct: {},
       firstAppWidth: null,
-      product: {
-        name: 'Сырная пицца',
-        prices: [{
-          label: 'Маленькая',
-          price: 35000
-        }, { label: 'Средняя', price: 45000 }, {
-          label: 'Большая', price: 60000
-        }],
-        img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/a9de393408e34b37ba00ba56a97fb64d_584x584.jpeg',
-        description: 'Увеличенная порция моцареллы, томатный соус',
-        sizes: [{ label: 'Большая', size: '35' }, { label: 'Средняя', size: '28' }, { label: 'Маленькая', size: '20' }],
-        doughType: [{ label: 'Традиционное' }, { label: 'Тонкое' }],
-        additionalProducts: [{
-          label: 'Брынза',
-          img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A262427A95111E9DBAF776AD5E9',
-          types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }]
-        }, {
-          label: 'Пикантная пеперони',
-          img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAF34D3A25F',
-          types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }]
-        },
-        {
-          label: 'Цыпленок',
-          img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAEC6D04E13',
-          types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }]
-        }]
-      }
-    }
+      products: [],
+      loading: true,
+    };
   },
   computed: {
-    isDialogOpen () {
-      return Object.keys(this.selectedProduct).length
+    isDialogOpen() {
+      return Object.keys(this.selectedProduct).length;
     },
-    paddingRight () {
+    paddingRight() {
       return {
-        'padding-right': this.isDialogOpen ? `${45 + (window.innerWidth - this.firstAppWidth)}px` : '45px'
-      }
-    }
+        'padding-right': this.isDialogOpen ? `${45 + (window.innerWidth - this.firstAppWidth)}px` : '45px',
+      };
+    },
   },
-  mounted () {
-    this.firstAppWidth = this.$refs.appMain.clientWidth
+  async mounted() {
+    this.firstAppWidth = this.$refs.appMain.clientWidth;
   },
   methods: {
-    closeDialog () {
-      this.selectedProduct = {}
-      document.body.style.overflow = 'auto'
+    closeDialog() {
+      this.selectedProduct = {};
+      document.body.style.overflow = 'auto';
     },
-    setSelectedProduct (product) {
-      this.selectedProduct = { ...product }
-      document.body.style.overflow = 'hidden'
-    }
-  }
-}
+    setSelectedProduct(product) {
+      this.selectedProduct = { ...product };
+      document.body.style.overflow = 'hidden';
+    },
+    async getDataFromApi(dataName) {
+      this.loading = true;
+      this.products = await fakeApi.getProduct(dataName);
+      if (this.products.length) {
+        this.loading = false;
+      }
+    },
+    getData(dataName) {
+      this.getDataFromApi(dataName);
+    },
+  },
+};
 </script>
 
 <style scoped lang='scss'>
 @import "assets/scss/_variables.scss";
+
+.loader {
+  width: 100%;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  background-color: #fff;
+  padding-top: 10%;
+}
 
 .main {
   background-color: $background;
@@ -97,10 +97,10 @@ export default {
   flex-wrap: wrap;
   background: #fff;
   padding: 30px;
-  justify-content: space-between;
 }
 
 .product {
+  margin-left: 30px;
   margin-bottom: 50px;
 }
 

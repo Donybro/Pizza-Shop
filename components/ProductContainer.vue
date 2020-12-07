@@ -1,30 +1,30 @@
 <template>
-  <div class="wrapper">
+  <div class='wrapper'>
     <img
-      v-show="!imageIsReady"
-      :src="def"
-      @click="showDialog"
+      v-show='!imageIsReady'
+      :src='def'
+      @click='showDialog'
     >
     <img
-      v-show="imageIsReady"
-      ref="img"
-      src=""
-      @click="showDialog"
+      v-show='imageIsReady'
+      ref='img'
+      src=''
+      @click='showDialog'
     >
-    <div class="text">
-      <div class="label">
+    <div class='text'>
+      <div class='label'>
         {{ product.name }}
       </div>
-      <div class="desc">
+      <div class='desc'>
         {{ product.description }}
       </div>
     </div>
-    <div class="priceWrapper">
-      <div class="price">
-        <div class="from">
+    <div class='priceWrapper'>
+      <div class='price'>
+        <div class='from'>
           От {{ product.prices[0].price }} сум
         </div>
-        <div class="select" @click="showDialog">
+        <div class='select' @click='showDialog'>
           Выбрать
         </div>
       </div>
@@ -33,34 +33,34 @@
 </template>
 
 <script>
-import def from '../assets/img/pizza/default.svg'
+import def from '../assets/img/pizza/default.svg';
 
 export default {
   name: 'ProductContainer',
   props: ['product'],
-  data () {
+  data() {
     return {
       def,
-      imageIsReady: false
-    }
+      imageIsReady: false,
+    };
   },
-  mounted () {
-    this.setImgSrc()
+  mounted() {
+    this.setImgSrc();
   },
   methods: {
-    setImgSrc () {
-      this.$refs.img.src = this.product.img
+    setImgSrc() {
+      this.$refs.img.src = this.product.img;
       this.$refs.img.onload = () => {
-        this.imageIsReady = true
-      }
+        this.imageIsReady = true;
+      };
     },
-    showDialog () {
+    showDialog() {
       this.$emit('selected', {
-        ...this.product
-      })
-    }
-  }
-}
+        ...this.product,
+      });
+    },
+  },
+};
 </script>
 
 <style scoped lang='scss'>
@@ -97,6 +97,9 @@ export default {
       line-height: 24px;
       letter-spacing: 0.01em;
       margin-bottom: 5px;
+      height: 48px;
+      overflow: hidden;
+      text-overflow: ellipsis;
       color: #000000;
     }
 

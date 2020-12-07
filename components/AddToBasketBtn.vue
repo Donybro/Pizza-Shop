@@ -1,20 +1,19 @@
 <template>
-  <div class="wrapper">
+  <div class='wrapper'>
     Добавить в корзину за 124 000 сум
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AddToBasketBtn'
-}
+  name: 'AddToBasketBtn',
+};
 </script>
 
 <style scoped lang='scss'>
 @import "assets/scss/variables";
 
 .wrapper {
-  height: 48px;
   padding: 12px 24px;
   font-size: 16px;
   line-height: 24px;

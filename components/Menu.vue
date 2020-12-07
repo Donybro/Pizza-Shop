@@ -1,11 +1,11 @@
 <template>
-  <div class="wrapper">
+  <div class='wrapper'>
     <div
-      v-for="category in menus"
-      :key="category.name"
-      class="category"
+      v-for='category in menus'
+      :key='category.name'
+      class='category'
       :class="{'active' : category.name===selectedMenu.name}"
-      @click="selectMenu(category)"
+      @click='selectMenu(category)'
     >
       {{ category.label }}
     </div>
@@ -15,42 +15,48 @@
 <script>
 export default {
   name: 'Menu',
-  data () {
+  data() {
     return {
       menus: [
         {
-          name: 'pizza',
-          label: 'Pizza'
+          name: 'pizzas',
+          label: 'Пиццы',
         },
         {
           name: 'drinks',
-          label: 'Drinks'
+          label: 'Напитки',
         },
         {
-          name: 'dessert',
-          label: 'Dessert'
+          name: 'deserts',
+          label: 'Десерты',
+        },
+        {
+          name: 'snakes',
+          label: 'Закуски',
         },
         {
           name: 'about',
-          label: 'About'
+          label: 'О нас',
         },
         {
           name: 'contacts',
-          label: 'Contacts'
-        }
+          label: 'Контакты',
+        },
       ],
-      selectedMenu: {}
-    }
+      selectedMenu: {},
+    };
   },
-  mounted () {
-    this.selectedMenu = this.menus[0]
+  mounted() {
+    this.selectedMenu = this.menus[0];
+    this.$emit('selected-menu', this.selectedMenu.name);
   },
   methods: {
-    selectMenu (category) {
-      this.selectedMenu = { ...category }
-    }
-  }
-}
+    selectMenu(category) {
+      this.selectedMenu = { ...category };
+      this.$emit('selected-menu', category.name);
+    },
+  },
+};
 </script>
 
 <style scoped lang='scss'>

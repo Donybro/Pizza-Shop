@@ -1,20 +1,25 @@
 <template>
   <div class='wrapper'>
     <div
-      v-for='category in menus'
-      :key='category.name'
-      class='category'
-      :class="{'active' : category.name===selectedMenu.name}"
-      @click='selectMenu(category)'
+        v-for='category in menus'
+        :key='category.name'
+        class='category'
+        :class="{'active' : category.name===selectedMenu.name}"
+        @click='selectMenu(category)'
     >
       {{ category.label }}
     </div>
+    <basket-button class='btn' />
   </div>
 </template>
 
 <script>
+import BasketButton from './BasketButton';
+import AccountBtn from './AccountBtn';
+
 export default {
   name: 'Menu',
+  components: { AccountBtn, BasketButton },
   data() {
     return {
       menus: [
@@ -47,13 +52,14 @@ export default {
     };
   },
   mounted() {
-    this.selectedMenu = this.menus[0];
+    this.selectedMenu = (this.menus.find((m) => m.name === this.$store.getters['category/getCategory']));
+    console.log('this.selectedMenu', this.selectedMenu);
     this.$emit('selected-menu', this.selectedMenu.name);
   },
   methods: {
     selectMenu(category) {
       this.selectedMenu = { ...category };
-      this.$emit('selected-menu', category.name);
+      this.$store.dispatch('category/setCategory', category.name);
     },
   },
 };
@@ -64,9 +70,17 @@ export default {
 
 .wrapper {
   background: #fff;
-  display: flex;
-  flex-wrap: wrap;
   padding: 10px 60px;
+  display: flex;
+
+}
+
+.btn {
+  background: $orange;
+  padding: 10px 30px 10px 15px;
+  width: 130px;
+  position: absolute;
+  right: 60px;
 }
 
 .category {
@@ -75,16 +89,17 @@ export default {
   letter-spacing: 0.015em;
   font-weight: bold;
   font-size: 16px;
-  line-height: 19px;
   text-align: center;
   color: $orange;
   border: 2px solid $orange;
   border-radius: 30px;
   cursor: pointer;
+  display: inline-block;
 }
 
 .active {
   color: #fff;
   background-color: $orange;
 }
+
 </style>

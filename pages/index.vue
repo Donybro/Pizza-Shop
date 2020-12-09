@@ -1,8 +1,7 @@
 <template>
   <div ref='appMain' class='main' :style='paddingRight'>
     <navbar />
-    <Menu @selected-menu='getData' />
-    <categories class='stickyMenu' />
+    <Menu class='stickyMenu' />
     <div class='loader' v-if='loading'>
       <spinner size='huge' line-fg-color='#fd6900' />
     </div>
@@ -22,9 +21,10 @@ import ProductContainer from '../components/ProductContainer';
 import DialogMenu from '../components/DialogMenu';
 import fakeApi from '../src/fakeApi';
 import Spinner from 'vue-simple-spinner';
+import BasketButton from '../components/BasketButton';
 
 export default {
-  components: { DialogMenu, ProductContainer, Categories, Menu, Navbar, Spinner },
+  components: { BasketButton, DialogMenu, ProductContainer, Categories, Menu, Navbar, Spinner },
   data() {
     return {
       selectedProduct: {},
@@ -42,6 +42,17 @@ export default {
         'padding-right': this.isDialogOpen ? `${45 + (window.innerWidth - this.firstAppWidth)}px` : '45px',
       };
     },
+    selectedCategory() {
+      return this.$store.getters['category/getCategory'];
+    },
+  },
+  watch: {
+    selectedCategory: {
+      immediate: true,
+      handler(categoryName) {
+        this.getDataFromApi(categoryName);
+      },
+    },
   },
   async mounted() {
     this.firstAppWidth = this.$refs.appMain.clientWidth;
@@ -56,14 +67,12 @@ export default {
       document.body.style.overflow = 'hidden';
     },
     async getDataFromApi(dataName) {
+      this.$store.dispatch('selectedAdditionalProduct/clearAllProducts');
       this.loading = true;
       this.products = await fakeApi.getProduct(dataName);
       if (this.products.length) {
         this.loading = false;
       }
-    },
-    getData(dataName) {
-      this.getDataFromApi(dataName);
     },
   },
 };

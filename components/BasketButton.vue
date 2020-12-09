@@ -1,69 +1,47 @@
 <template>
-  <div class="wrapper">
-    <div class="price">
-      520 ₽
-    </div>
-    <div class="line" />
-    <div class="basket">
-      <img :src="basketLogo" alt="">
-      <span>3</span>
-    </div>
+  <div class='wrapper'>
+    Корзина
+    <img :src='basketLogo' />
+    {{ productsInCart }}
   </div>
 </template>
 
 <script>
-import basketLogo from '../assets/img/cart.svg'
+import basketLogo from '../assets/img/cart.svg';
 
 export default {
-  name: 'BasketButton',
-  data () {
+  name: 'AccountBtn',
+  data() {
     return {
-      basketLogo
-    }
-  }
-}
+      basketLogo,
+    };
+  },
+  computed: {
+    productsInCart() {
+      return (this.$store.getters['products/getProducts']).length;
+    },
+  },
+};
 </script>
 
 <style scoped lang='scss'>
-@import "assets/scss/_variables.scss";
+@import "assets/scss/variables";
 
 .wrapper {
-  display: flex;
-  width: 140px;
-  height: 45px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 23px;
   border-radius: 30px;
   background-color: $orange;
+  border: 1px solid transparent;
   cursor: pointer;
+  user-select: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
 
-  .price {
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 19px;
-    color: #FFFFFF;
-  }
-
-  .line {
-    width: 1%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.25);
-
-  }
-
-  .basket {
-    display: flex;
-    align-items: center;
-
-    span {
-      margin-left: 9px;
-      color: #fff;
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 19px;
-    }
+  img {
+    margin: 0 5px;
   }
 }
+
 </style>

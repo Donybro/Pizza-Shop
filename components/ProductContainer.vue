@@ -98,6 +98,7 @@ export default {
       letter-spacing: 0.01em;
       margin-bottom: 5px;
       height: 48px;
+      text-align: center;
       overflow: hidden;
       text-overflow: ellipsis;
       color: #000000;

@@ -73,11 +73,7 @@ export default {
   justify-content: flex-start;
 }
 
-.btnBasket {
-  background: $orange;
-  position: absolute;
-  right: 20px;
-}
+
 
 .category {
   margin-right: 30px;

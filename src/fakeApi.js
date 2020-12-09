@@ -16,16 +16,25 @@ export default {
       additionalProducts: [{
         label: 'Брынза',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A262427A95111E9DBAF776AD5E9',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       }, {
         label: 'Пикантная пеперони',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAF34D3A25F',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       },
         {
           label: 'Цыпленок',
           img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAEC6D04E13',
-          types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+          types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+            label: 'Маленькая',
+            price: 7000,
+          }],
         }],
     },
     {
@@ -43,16 +52,25 @@ export default {
       additionalProducts: [{
         label: 'Сыр моцарелла',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611EA0840DB86284E',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       }, {
         label: 'Острый халапеньо',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAED95FEBAA',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       },
         {
           label: 'Соленые огурчики',
           img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A262427A95111E9EA8A95AE1BD9',
-          types: [{ label: 'Big', price: 12000 }, { label: 'Medium', price: 9000 }, { label: 'Small', price: 7000 }],
+          types: [{ label: 'Большая', price: 12000 }, { label: 'Средняя', price: 9000 }, {
+            label: 'Маленькая',
+            price: 7000,
+          }],
         }],
     },
     {
@@ -70,16 +88,25 @@ export default {
       additionalProducts: [{
         label: 'Сыр моцарелла',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611EA0840DB86284E',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       }, {
         label: 'Острый халапеньо',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAED95FEBAA',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       },
         {
           label: 'Ветчина из цыпленка',
           img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A262427A95111E9DBAF25CA64B9',
-          types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+          types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+            label: 'Маленькая',
+            price: 7000,
+          }],
         }],
     },
     {
@@ -97,11 +124,17 @@ export default {
       additionalProducts: [{
         label: 'Брынза',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A262427A95111E9DBAF776AD5E9',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       }, {
         label: 'Острый халапеньо',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAED95FEBAA',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       }],
     },
     {
@@ -119,11 +152,17 @@ export default {
       additionalProducts: [{
         label: 'Грибы',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAF50F6026F',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       }, {
         label: 'Острый халапеньо',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAED95FEBAA',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       }],
     },
     {
@@ -155,12 +194,18 @@ export default {
       additionalProducts: [{
         label: 'Брынза',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A262427A95111E9DBAF776AD5E9',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       },
         {
           label: 'Острый халапеньо',
           img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAED95FEBAA',
-          types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+          types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+            label: 'Маленькая',
+            price: 7000,
+          }],
         }],
     },
     {
@@ -195,11 +240,17 @@ export default {
       additionalProducts: [{
         label: 'Грибы',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAF50F6026F',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       }, {
         label: 'Острый халапеньо',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAED95FEBAA',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       }],
     },
     {
@@ -217,16 +268,25 @@ export default {
       additionalProducts: [{
         label: 'Сыр моцарелла',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611EA0840DB86284E',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       }, {
         label: 'Острый халапеньо',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAED95FEBAA',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       },
         {
           label: 'Ветчина из цыпленка',
           img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A262427A95111E9DBAF25CA64B9',
-          types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+          types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+            label: 'Маленькая',
+            price: 7000,
+          }],
         }],
     },
     {
@@ -244,12 +304,18 @@ export default {
       additionalProducts: [{
         label: 'Брынза',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A262427A95111E9DBAF776AD5E9',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       },
         {
           label: 'Острый халапеньо',
           img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAED95FEBAA',
-          types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+          types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+            label: 'Маленькая',
+            price: 7000,
+          }],
         }],
     },
     {
@@ -267,18 +333,25 @@ export default {
       additionalProducts: [{
         label: 'Брынза',
         img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A262427A95111E9DBAF776AD5E9',
-        types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
       },
         {
           label: 'Острый халапеньо',
           img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAED95FEBAA',
-          types: [{ label: 'Big', price: 17000 }, { label: 'Medium', price: 12000 }, { label: 'Small', price: 7000 }],
+          types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+            label: 'Маленькая',
+            price: 7000,
+          }],
         }],
     },
   ],
   snakes: [
     {
-      name: 'Рулетики с пепперони + Рулетики с сыром, 16 шт',
+      name: 'Рулетики с пепперони + Рулетики с сыром',
+      info: '16шт',
       prices: [{
         label: 'none',
         price: 32000,
@@ -290,7 +363,8 @@ export default {
       additionalProducts: [],
     },
     {
-      name: 'Рулетики с сыром, 16 шт',
+      name: 'Рулетики с сыром',
+      info: '16шт',
       prices: [{
         label: 'none',
         price: 26000,
@@ -302,7 +376,8 @@ export default {
       additionalProducts: [],
     },
     {
-      name: 'Рулетики с сыром, 8 шт',
+      name: 'Рулетики с сыром',
+      info: '8 шт',
       prices: [{
         label: 'none',
         price: 16000,
@@ -315,6 +390,7 @@ export default {
     },
     {
       name: 'Додстер Чипотле',
+      info: '1шт',
       prices: [{
         label: 'none',
         price: 15000,
@@ -327,6 +403,7 @@ export default {
     },
     {
       name: 'Картофель с цыпленком и сыром блю чиз',
+      info: '1шт',
       prices: [{
         label: 'none',
         price: 29000,
@@ -339,6 +416,7 @@ export default {
     },
     {
       name: 'Салат цезарь',
+      info: '1шт',
       prices: [{
         label: 'none',
         price: 20000,
@@ -352,7 +430,8 @@ export default {
   ],
   deserts: [
     {
-      name: 'Айс Капучино, 0.35 л',
+      name: 'Айс Капучино',
+      info: '0.35 л',
       prices: [{
         label: 'none',
         price: 16000,
@@ -365,36 +444,39 @@ export default {
     },
     {
       name: 'Молочный коктейль с печеньем Орео',
+      info: '0,39 л',
       prices: [{
         label: 'none',
         price: 15000,
       }],
       img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/f36219a4f0e647e095dc1c667bdd2420_292x292.jpeg',
-      description: '0,39 л. Напиток из молока и мороженого с добавлением дробленого печенья «Орео»',
+      description: 'Напиток из молока и мороженого с добавлением дробленого печенья «Орео»',
       sizes: [],
       doughType: [],
       additionalProducts: [],
     },
     {
       name: 'Шоколадный молочный коктейль',
+      info: '0,39 л',
       prices: [{
         label: 'none',
         price: 19000,
       }],
       img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/22d7232fe2374b77b6a5d33f8b18f4c6_292x292.jpeg',
-      description: '0,39 л. Напиток из молока и мороженого с шоколадным сиропом',
+      description: 'Напиток из молока и мороженого с шоколадным сиропом',
       sizes: [],
       doughType: [],
       additionalProducts: [],
     },
     {
       name: 'Карамельный молочный коктейль',
+      info: '0,39 л',
       prices: [{
         label: 'none',
         price: 20000,
       }],
       img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/5cbe41551489424ca21525120f7b1210_292x292.jpeg',
-      description: '0,39 л. Напиток из молока и мороженого с карамельным сиропом',
+      description: 'Напиток из молока и мороженого с карамельным сиропом',
       sizes: [],
       doughType: [],
       additionalProducts: [],
@@ -403,84 +485,91 @@ export default {
   drinks: [
     {
       name: 'Кофе Ореховый латте',
+      info: '0,3 л',
       prices: [{
         label: 'none',
         price: 9000,
       }],
       img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/6bfe0510e6af4a6aac2b86afcf91d7ae_292x292.jpeg',
-      description: '0,3 л, Горячий напиток с увеличенной порцией молока и ореховым сиропом',
+      description: 'Горячий напиток с увеличенной порцией молока и ореховым сиропом',
       sizes: [],
       doughType: [],
       additionalProducts: [],
     },
     {
       name: 'Кофе Латте',
+      info: '0,4 л',
       prices: [{
         label: 'none',
         price: 11000,
       }],
       img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/69adaa7c66dc4ff4b460416c510498a0_292x292.jpeg',
-      description: '0,4 л, Горячий напиток на основе эспрессо с увеличенной порцией молока',
+      description: 'Горячий напиток на основе эспрессо с увеличенной порцией молока',
       sizes: [],
       doughType: [],
       additionalProducts: [],
     },
     {
       name: 'Кофе Карамельный капучино',
+      info: '0,4 л',
       prices: [{
         label: 'none',
         price: 15000,
       }],
       img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/0ab016a87a9840fa9da91f472ba20bfa_292x292.jpeg',
-      description: '0,4 л, Горячий напиток на основе эспрессо с добавлением вспененного молока и карамельного сиропа',
+      description: 'Горячий напиток на основе эспрессо с добавлением вспененного молока и карамельного сиропа',
       sizes: [],
       doughType: [],
       additionalProducts: [],
     },
     {
       name: 'Кофе Американо из зёрен 100% арабики',
+      info: '0,4 л',
       prices: [{
         label: 'none',
         price: 15000,
       }],
       img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/821f2324bfcc4cf6b293aed690fd59b5_292x292.jpeg',
-      description: '0,4 л,Горячий напиток на основе эспрессо',
+      description: 'Горячий напиток на основе эспрессо',
       sizes: [],
       doughType: [],
       additionalProducts: [],
     },
     {
       name: 'Coca-cola',
+      info: '0,5 л',
       prices: [{
         label: 'none',
         price: 5000,
       }],
       img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/65ce315bb46e4079b9e20da8e39d93e2_292x292.jpeg',
-      description: '0,5 л',
+      description: '',
       sizes: [],
       doughType: [],
       additionalProducts: [],
     },
     {
       name: 'Sprite',
+      info: '0,5 л',
       prices: [{
         label: 'none',
         price: 5000,
       }],
       img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/71fb67295db94ea7973b8dd152b1c031_292x292.jpeg',
-      description: '0,5 л',
+      description: '',
       sizes: [],
       doughType: [],
       additionalProducts: [],
     },
     {
       name: 'Fanta',
+      info: '0,5 л',
       prices: [{
         label: 'none',
         price: 5000,
       }],
       img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/1202e7ea026a4c26ad5f50e10c351997_292x292.jpeg',
-      description: '0,5 л',
+      description: '',
       sizes: [],
       doughType: [],
       additionalProducts: [],

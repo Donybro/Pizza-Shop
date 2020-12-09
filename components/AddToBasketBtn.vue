@@ -1,12 +1,13 @@
 <template>
   <div class='wrapper'>
-    Добавить в корзину за 124 000 сум
+    Добавить в корзину за {{ price }} сум
   </div>
 </template>
 
 <script>
 export default {
   name: 'AddToBasketBtn',
+  props: ['price'],
 };
 </script>
 

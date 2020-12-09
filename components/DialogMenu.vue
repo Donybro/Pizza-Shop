@@ -8,8 +8,8 @@
         <p class='label'>
           {{ selectedProduct.name }}
         </p>
-        <p v-if='selectedProduct.doughType.length' class='info'>
-          {{ productInfo }}
+        <p class='info'>
+          {{ selectedProduct.doughType.length ? productInfo : selectedProduct.info }}
         </p>
         <p class='desc'>
           {{ selectedProduct.description }}
@@ -19,13 +19,13 @@
             v-if='selectedProduct.sizes.length'
             :options='selectedProduct.sizes'
             option-type='размер-пиццы'
-            @selectedOption='setOption'
+            @selectedOption='setProductOption'
           />
           <option-group
             v-if='selectedProduct.doughType.length'
             :options='selectedProduct.doughType'
             option-type='тип-теста'
-            @selectedOption='setOption'
+            @selectedOption='setProductOption'
           />
         </div>
         <div v-if='selectedProduct.additionalProducts.length' class=''>
@@ -35,14 +35,15 @@
               v-for='product in selectedProduct.additionalProducts'
               :key='product.label'
               :product='product'
-              @add-product-selected='setOption'
-              @remove-product-selected='removeOption'
+              @add-product-selected='setProductOption'
               class='additionalProduct'
+              :pizza-size='pizzaSize'
             />
           </div>
         </div>
         <div class='basketBtnWrapp' @click='addToBasket'>
-          <add-to-basket-btn class='addToBasket' :class="{'disabledBtn' : btnIsDisabled}" />
+          <add-to-basket-btn class='addToBasket' :class="{'disabledBtn' : btnIsDisabled}"
+                             :price='this.prices ? this.prices : this.selectedProduct.prices[0].price' />
         </div>
       </div>
       <svg
@@ -76,43 +77,68 @@ export default {
   props: ['isDialogOpen', 'selectedProduct'],
   data() {
     return {
-      productOptions: {},
+      productToBuy: {},
       btnIsDisabled: false,
+      pizzaSize: '',
     };
   },
   computed: {
     productInfo() {
       const pizzaSize = {
-        ...this.selectedProduct.sizes.find(prod => prod.label === this.productOptions['размер-пиццы']),
+        ...this.selectedProduct.sizes.find(prod => prod.label === this.$store.getters['currentSelectedProduct/getPizzaSize']),
       };
-      return `${this.productOptions['размер-пиццы']} пицца ${pizzaSize.size} см, ${this.productOptions['тип-теста']} тесто.`;
+      return `${this.$store.getters['currentSelectedProduct/getPizzaSize']} пицца ${pizzaSize.size} см, ${this.$store.getters['currentSelectedProduct/getDoughType']} тесто.`;
+    },
+    prices() {
+      const pizzaPrice = {
+        ...this.selectedProduct.prices.find(prod => prod.label === this.$store.getters['currentSelectedProduct/getPizzaSize']),
+      };
+      let result = pizzaPrice.price;
+      if (this.$store.getters['currentSelectedProduct/getDoughType'] === 'Тонкое') {
+        result += 5000;
+      }
+      let fromAdditionalProducts = this.$store.getters['selectedAdditionalProduct/getPrice'] || 0;
+      // let fromAdditionalProducts = this.$store.getters['selectedAdditionalProduct/getPrice'] || this.productToBuy['добавочные продукты'].prices;
+      return result + fromAdditionalProducts;
     },
   },
   watch: {
-    productOptions(opt) {
-      console.log(opt);
+    productToBuy(opt) {
     },
   },
   methods: {
     closeDialog() {
       this.$emit('close-dialog');
     },
-    setOption(prod) {
-      this.productOptions = {
-        ...this.productOptions,
+    setProductOption(prod) {
+      this.productToBuy = {
+        ...this.productToBuy,
         ...prod,
       };
-    },
-    removeOption(optionName) {
-      delete this.productOptions[optionName];
+      if (prod.hasOwnProperty('размер-пиццы')) {
+        this.$store.dispatch('currentSelectedProduct/setPizzaSize', prod['размер-пиццы']);
+      }
+      if (prod.hasOwnProperty('тип-теста')) {
+        this.$store.dispatch('currentSelectedProduct/setDoughType', prod['тип-теста']);
+      }
+      this.pizzaSize = this.$store.getters['currentSelectedProduct/getPizzaSize'];
     },
     addToBasket() {
-      this.productOptions = {
-        ...this.productOptions,
-        name: this.selectedProduct.name,
+      this.productToBuy = {
+        ...this.productToBuy,
+        productName: this.selectedProduct.name,
+        overallPrice: this.prices ? this.prices : this.selectedProduct.prices[0].price,
+        productInfo: this.selectedProduct.doughType.length ? this.productInfo : this.selectedProduct.info,
+        'добавочные продукты': {
+          names: this.$store.getters['selectedAdditionalProduct/getNames'],
+          prices: this.$store.getters['selectedAdditionalProduct/getPrice'],
+        },
+        count: 1,
       };
       this.btnIsDisabled = !this.btnIsDisabled;
-      console.log(this.productOptions);
+      console.log(JSON.stringify(this.productToBuy, null, 2));
+      this.$store.dispatch('products/setProduct', this.productToBuy);
+      this.productToBuy = {};
     },
   },
 };

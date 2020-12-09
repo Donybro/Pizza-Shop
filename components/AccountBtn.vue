@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper">
-    <p class="label">
+  <div class='wrapper'>
+    <p class='label'>
       Войти
     </p>
   </div>
@@ -8,8 +8,8 @@
 
 <script>
 export default {
-  name: 'AccountBtn'
-}
+  name: 'AccountBtn',
+};
 </script>
 
 <style scoped lang='scss'>
@@ -22,6 +22,7 @@ export default {
   border: 1px solid transparent;
   cursor: pointer;
   user-select: none;
+  display: inline-block;
 
   &:hover {
     transition-duration: 300ms;

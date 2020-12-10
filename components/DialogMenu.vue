@@ -127,6 +127,8 @@ export default {
       this.productToBuy = {
         ...this.productToBuy,
         productName: this.selectedProduct.name,
+        img: this.selectedProduct.img,
+        price: this.prices ? this.prices : this.selectedProduct.prices[0].price,
         overallPrice: this.prices ? this.prices : this.selectedProduct.prices[0].price,
         productInfo: this.selectedProduct.doughType.length ? this.productInfo : this.selectedProduct.info,
         'добавочные продукты': {
@@ -136,7 +138,6 @@ export default {
         count: 1,
       };
       this.btnIsDisabled = !this.btnIsDisabled;
-      console.log(JSON.stringify(this.productToBuy, null, 2));
       this.$store.dispatch('products/setProduct', this.productToBuy);
       this.productToBuy = {};
     },

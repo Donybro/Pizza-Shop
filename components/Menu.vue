@@ -1,11 +1,11 @@
 <template>
   <div class='wrapper'>
     <div
-        v-for='category in menus'
-        :key='category.name'
-        class='category'
-        :class="{'active' : category.name===selectedMenu.name}"
-        @click='selectMenu(category)'
+      v-for='category in menus'
+      :key='category.name'
+      class='category'
+      :class="{'active' : category.name===selectedMenu.name}"
+      @click='selectMenu(category)'
     >
       {{ category.label }}
     </div>
@@ -53,7 +53,6 @@ export default {
   },
   mounted() {
     this.selectedMenu = (this.menus.find((m) => m.name === this.$store.getters['category/getCategory']));
-    console.log('this.selectedMenu', this.selectedMenu);
     this.$emit('selected-menu', this.selectedMenu.name);
   },
   methods: {
@@ -81,6 +80,10 @@ export default {
   width: 130px;
   position: absolute;
   right: 60px;
+
+  &:hover {
+    background: #da5e00;
+  }
 }
 
 .category {

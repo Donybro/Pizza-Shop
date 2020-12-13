@@ -9,7 +9,9 @@
     >
       {{ category.label }}
     </div>
-    <basket-button class='btn' />
+    <nuxt-link to='/cart'>
+      <basket-button class='btn' />
+    </nuxt-link>
   </div>
 </template>
 

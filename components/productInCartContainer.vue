@@ -147,7 +147,7 @@ export default {
     .counter {
       display: flex;
       flex-wrap: nowrap;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
 
       .price {

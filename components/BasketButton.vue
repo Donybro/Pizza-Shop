@@ -1,22 +1,31 @@
 <template>
-  <div class='wrapper' @mouseover='showDialogMenu' @mouseout.stop='hideDialogMenu'>
+  <div class='wrapper' @mouseover.stop='showDialogMenu' @mouseout.stop='hideDialogMenu'>
     Корзина
     <img :src='basketLogo' alt='basket' />
     {{ productsAmount }}
-    <div v-if='showDialog && productsInCart.length'
-         @mouseover='showDialogMenu'
+    <div v-if='showDialog'
+         @mouseover.stop='showDialogMenu'
          @mouseout.stop='hideDialogMenu'
          class='dialogWrapper'
          :key='key'
     >
-      <product-in-cart-container
-        class='productFromCart'
-        v-for='product in productsInCart'
-        :product='product'
-        :key='product.name'
-        @rerender-carts='key++'
-      />
-      <div class='overallPrice'>
+      <div @click.prevent v-if='productsInCart.length'>
+        <product-in-cart-container
+          class='productFromCart'
+          v-for='product in productsInCart'
+          :product='product'
+          :key='product.name'
+          @rerender-carts='key++'
+        />
+      </div>
+      <div @click.prevent v-else class='emptycartWrapper'>
+        <empty-cart class='emptycart' />
+        <div class='label'>Ой, пусто!</div>
+        <div>Мы всегда доставляем бесплатно,
+          но сумма заказа должна быть от 38 000 сум
+        </div>
+      </div>
+      <div @click.prevent v-if='productsInCart.length' class='overallPrice'>
         Сумма к оплате {{ productsOverallPrice }}
       </div>
     </div>
@@ -26,10 +35,11 @@
 <script>
 import basketLogo from '../assets/img/cart.svg';
 import ProductInCartContainer from './productInCartContainer';
+import EmptyCart from './emptyCart';
 
 export default {
   name: 'basketButton',
-  components: { ProductInCartContainer },
+  components: { EmptyCart, ProductInCartContainer },
   data() {
     return {
       basketLogo,
@@ -74,6 +84,25 @@ export default {
 
 <style scoped lang='scss'>
 @import "assets/scss/variables";
+
+.emptycartWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 10px;
+
+  div {
+    color: #000;
+    width: 250px;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .label {
+    font-size: 22px;
+  }
+}
 
 .wrapper {
   border-radius: 30px;

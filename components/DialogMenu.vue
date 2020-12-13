@@ -102,10 +102,6 @@ export default {
       return result + fromAdditionalProducts;
     },
   },
-  watch: {
-    productToBuy(opt) {
-    },
-  },
   methods: {
     closeDialog() {
       this.$emit('close-dialog');

@@ -12,9 +12,8 @@ export default {
   mode: 'spa',
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ['~/assets/scss/index.scss'],
-
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ['~/plugins/vuelidate.js'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -29,6 +28,24 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     'nuxt-purgecss',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyChFlOS2ECY9UOJbFQRntUw3XM9bcAzmcQ',
+          authDomain: 'pizza-75af9.firebaseapp.com',
+          projectId: 'pizza-75af9',
+          storageBucket: 'pizza-75af9.appspot.com',
+          messagingSenderId: '1097513689550',
+          appId: '1:1097513689550:web:04f9e5dc424d78f2238b9f',
+          measurementId: 'G-9BFQNF2CZX',
+        },
+        services: {
+          auth: true,
+          database: true,
+        },
+      },
+    ],
   ],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

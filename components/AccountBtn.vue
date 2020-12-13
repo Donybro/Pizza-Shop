@@ -1,14 +1,21 @@
 <template>
-  <div class='wrapper'>
-    <p class='label'>
-      Войти
-    </p>
-  </div>
+  <nuxt-link to='profile'>
+    <div class='wrapper'>
+      <p class='label'>
+        {{ userInfo.name }}
+      </p>
+    </div>
+  </nuxt-link>
 </template>
 
 <script>
 export default {
   name: 'AccountBtn',
+  computed: {
+    userInfo() {
+      return this.$store.getters['user/getUserInfo'];
+    },
+  },
 };
 </script>
 
@@ -17,7 +24,7 @@ export default {
 
 .wrapper {
   border-radius: 30px;
-  padding: 15px 25px;
+  padding: 10px 20px;
   background-color: $gray-line;
   border: 1px solid transparent;
   cursor: pointer;
@@ -33,17 +40,12 @@ export default {
       color: $black;
     }
   }
-
-  &:active {
-    padding: 17px 27px;
-  }
 }
 
 .label {
   color: #c1c1c1;
   font-weight: bold;
   font-size: 16px;
-  line-height: 19px;
 
 }
 </style>

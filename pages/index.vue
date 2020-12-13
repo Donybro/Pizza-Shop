@@ -56,6 +56,11 @@ export default {
   },
   async mounted() {
     this.firstAppWidth = this.$refs.appMain.clientWidth;
+    const isAuth = this.$store.getters['auth/getIsAuth'];
+    console.log(isAuth);
+    if (isAuth) {
+      await this.$store.dispatch('user/fetchUserInfo');
+    }
   },
   methods: {
     closeDialog() {

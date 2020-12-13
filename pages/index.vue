@@ -9,7 +9,9 @@
       <product-container v-for='(product,i) in products' :key='i' :product='product' @selected='setSelectedProduct'
                          class='product' />
     </div>
-    <dialog-menu :is-dialog-open='isDialogOpen' :selected-product='selectedProduct' @close-dialog='closeDialog' />
+    <dialog-menu :is-dialog-open='isDialogOpen' @close-dialog='closeDialog'>
+      <dialog-product-wrapper :selected-product='selectedProduct' @close-dialog='closeDialog' />
+    </dialog-menu>
   </div>
 </template>
 
@@ -22,9 +24,10 @@ import DialogMenu from '../components/DialogMenu';
 import fakeApi from '../src/fakeApi';
 import Spinner from 'vue-simple-spinner';
 import BasketButton from '../components/BasketButton';
+import DialogProductWrapper from '../components/dialogProductWrapper';
 
 export default {
-  components: { BasketButton, DialogMenu, ProductContainer, Categories, Menu, Navbar, Spinner },
+  components: { DialogProductWrapper, BasketButton, DialogMenu, ProductContainer, Categories, Menu, Navbar, Spinner },
   data() {
     return {
       selectedProduct: {},

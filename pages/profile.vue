@@ -27,6 +27,8 @@ export default {
   mounted() {
     if (!this.$store.getters['auth/getIsAuth']) {
       this.$router.push('/auth');
+    } else {
+      this.$store.dispatch('category/setCategory', '');
     }
   },
   methods: {

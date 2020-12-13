@@ -4,7 +4,7 @@
       v-for='category in menus'
       :key='category.name'
       class='category'
-      :class="{'active' : category.name===selectedMenu.name}"
+      :class="{'active' : category.name===selectedMenuName}"
       @click='selectMenu(category)'
     >
       {{ category.label }}
@@ -60,7 +60,13 @@ export default {
   methods: {
     selectMenu(category) {
       this.selectedMenu = { ...category };
+      this.$router.push('/');
       this.$store.dispatch('category/setCategory', category.name);
+    },
+  },
+  computed: {
+    selectedMenuName() {
+      return this.$store.getters['category/getCategory'];
     },
   },
 };

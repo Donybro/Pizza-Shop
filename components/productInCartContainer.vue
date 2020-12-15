@@ -161,7 +161,7 @@ export default {
         font-size: 20px;
         border-radius: 30px;
         background: $gray-line;
-
+        cursor: pointer;
         span {
           padding: 5px 8px;
         }

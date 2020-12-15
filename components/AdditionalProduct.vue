@@ -1,5 +1,5 @@
 <template>
-  <div class='wrapper' :class="{'selected':isSelected}" @click='selectProduct'>
+  <div class='wrapperAdditionalProduct' :class="{'selected':isSelected}" @click='selectProduct'>
     <img v-show='!imageIsReady' :src='def'>
     <img v-show='imageIsReady' ref='img' src='' alt='no-image'>
     <p class='label'>
@@ -58,6 +58,7 @@ export default {
   methods: {
     selectProduct() {
       this.isSelected = !this.isSelected;
+      console.log(this.isSelected);
       if (this.isSelected) {
         this.emitProduct();
       } else {
@@ -88,7 +89,7 @@ export default {
 <style scoped lang='scss'>
 @import "assets/scss/variables";
 
-.wrapper {
+.wrapperAdditionalProduct {
   position: relative;
   width: 106px;
   height: 166px;

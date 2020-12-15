@@ -12,6 +12,7 @@
     <dialog-menu :is-dialog-open='isDialogOpen' @close-dialog='closeDialog'>
       <dialog-product-wrapper :selected-product='selectedProduct' @close-dialog='closeDialog' />
     </dialog-menu>
+    <Footer />
   </div>
 </template>
 
@@ -25,9 +26,20 @@ import fakeApi from '../src/fakeApi';
 import Spinner from 'vue-simple-spinner';
 import BasketButton from '../components/BasketButton';
 import DialogProductWrapper from '../components/dialogProductWrapper';
+import Footer from '../components/footer';
 
 export default {
-  components: { DialogProductWrapper, BasketButton, DialogMenu, ProductContainer, Categories, Menu, Navbar, Spinner },
+  components: {
+    Footer,
+    DialogProductWrapper,
+    BasketButton,
+    DialogMenu,
+    ProductContainer,
+    Categories,
+    Menu,
+    Navbar,
+    Spinner,
+  },
   data() {
     return {
       selectedProduct: {},

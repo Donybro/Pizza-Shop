@@ -45,10 +45,6 @@ export default {
           name: 'about',
           label: 'О нас',
         },
-        {
-          name: 'contacts',
-          label: 'Контакты',
-        },
       ],
       selectedMenu: {},
     };
@@ -60,8 +56,13 @@ export default {
   methods: {
     selectMenu(category) {
       this.selectedMenu = { ...category };
-      this.$router.push('/');
-      this.$store.dispatch('category/setCategory', category.name);
+      if (category.name === 'about') {
+        this.$store.dispatch('category/setCategory', category.name);
+        this.$router.push('/about');
+      } else {
+        this.$router.push('/');
+        this.$store.dispatch('category/setCategory', category.name);
+      }
     },
   },
   computed: {

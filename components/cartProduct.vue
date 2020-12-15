@@ -135,7 +135,7 @@ export default {
     border-radius: 30px;
     background: $gray-line;
     margin-right: 10px;
-
+    cursor: pointer;
     span {
       padding: 5px 8px;
     }

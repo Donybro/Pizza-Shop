@@ -27,6 +27,8 @@ export default {
 .productDialog {
   position: fixed;
   z-index: 100;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   background: rgba(1, 1, 1, .4);

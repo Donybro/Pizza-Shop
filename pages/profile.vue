@@ -8,6 +8,7 @@
       <modefied-input label='Номер телефона' class='option' optionName='phone' :info-value='userInfo.phone' />
       <div @click='logout' class='logout'>Выйти</div>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -15,10 +16,11 @@
 import Navbar from '../components/Navbar';
 import Menu from '../components/Menu';
 import ModefiedInput from '../components/modefiedInput';
+import Footer from '../components/footer';
 
 export default {
   name: 'profile',
-  components: { ModefiedInput, Menu, Navbar },
+  components: { Footer, ModefiedInput, Menu, Navbar },
   computed: {
     userInfo() {
       return this.$store.getters['user/getUserInfo'];
@@ -88,6 +90,10 @@ export default {
 }
 
 .option {
+  margin-top: 10px;
+}
+
+.selectAdress {
   margin-top: 10px;
 }
 </style>

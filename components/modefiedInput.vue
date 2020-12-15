@@ -1,6 +1,6 @@
 <template>
   <div class='inputField'>
-    <label for='val'>{{ label }}</label>
+    <p>{{ label }}</p>
     <div class='parentInput'>
       <input id='val' type='text' v-model='value'>
       <span class='change btn' @click='modefiedMode=true' v-if='!modefiedMode'>Изменить</span>
@@ -44,10 +44,9 @@ export default {
 
 .input_field {
   display: flex;
-  flex-direction: column;
 }
 
-label {
+p {
   font-size: 20px;
   font-weight: 600;
   color: $black;
@@ -60,7 +59,7 @@ label {
   input {
     width: 400px;
     height: 40px;
-    background: #ffffff;
+    background: #f3f2f2;
     display: inline-block;
     border-radius: 12px;
     box-sizing: border-box;
@@ -79,7 +78,7 @@ label {
 
   .btn {
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 40px;
     cursor: pointer;
   }
@@ -91,5 +90,8 @@ label {
     color: $orange;
   }
 
+  .change {
+    color: $orange;
+  }
 }
 </style>

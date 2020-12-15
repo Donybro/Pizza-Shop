@@ -1,8 +1,79 @@
 export default {
   pizzas: [
     {
+      name: 'Супермясная',
+      prices: [{
+        label: 'Маленькая',
+        price: 33000,
+      }, { label: 'Средняя', price: 45000 }, {
+        label: 'Большая', price: 60000,
+      }],
+      img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/28417287-2e8a-4065-a0c8-56044bd65dbd.jpg',
+      description: 'Картофель из печи,соленые огурчики,соус ранч,томаты,красный лук,чеснок,томатный соус,моцарелла',
+      sizes: [{ label: 'Большая', size: '35' }, { label: 'Средняя', size: '28' }, { label: 'Маленькая', size: '20' }],
+      doughType: [{ label: 'Традиционное' }, { label: 'Тонкое' }],
+      additionalProducts: [{
+        label: 'Сыр моцарелла',
+        img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611EA0840DB86284E',
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
+      }, {
+        label: 'Острый халапеньо',
+        img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAED95FEBAA',
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
+      },
+        {
+          label: 'Ветчина из цыпленка',
+          img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A262427A95111E9DBAF25CA64B9',
+          types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+            label: 'Маленькая',
+            price: 7000,
+          }],
+        }],
+    },
+    {
+      name: 'Крэйзи пепперони',
+      prices: [{
+        label: 'Маленькая',
+        price: 47000,
+      }, { label: 'Средняя', price: 55000 }, {
+        label: 'Большая', price: 66000,
+      }],
+      img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/ffa80e1a-43a5-4fc0-878f-54fe927ba247.jpg',
+      description: 'Увеличенная порция моцареллы, томатный соус',
+      sizes: [{ label: 'Большая', size: '35' }, { label: 'Средняя', size: '28' }, { label: 'Маленькая', size: '20' }],
+      doughType: [{ label: 'Традиционное' }, { label: 'Тонкое' }],
+      additionalProducts: [{
+        label: 'Брынза',
+        img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A262427A95111E9DBAF776AD5E9',
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
+      }, {
+        label: 'Грибы',
+        img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAF50F6026F',
+        types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+          label: 'Маленькая',
+          price: 7000,
+        }],
+      },
+        {
+          label: 'Цыпленок',
+          img: 'https://dodopizza-a.akamaihd.net/static/Img/Ingredients/000D3A219740A95611E9DBAEC6D04E13',
+          types: [{ label: 'Большая', price: 17000 }, { label: 'Средняя', price: 12000 }, {
+            label: 'Маленькая',
+            price: 7000,
+          }],
+        }],
+    },
+    {
       name: 'Сырная пицца',
-      type: ['vegeterian'],
       prices: [{
         label: 'Маленькая',
         price: 37000,
@@ -350,6 +421,19 @@ export default {
   ],
   snakes: [
     {
+      name: 'Картофель из печи, большой',
+      info: '1шт',
+      prices: [{
+        label: 'none',
+        price: 22000,
+      }],
+      img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/38e0aa74188c4a15b412dd67eda5e612_292x292.jpeg',
+      description: 'Ароматный запеченный картофель с итальянскими травами. Большая порция',
+      sizes: [],
+      doughType: [],
+      additionalProducts: [],
+    },
+    {
       name: 'Рулетики с пепперони + Рулетики с сыром',
       info: '16шт',
       prices: [{
@@ -371,6 +455,19 @@ export default {
       }],
       img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/75510fd0fcb54bbdb85607a53688ee3e_292x292.jpeg',
       description: 'Сытные рулетики с моцареллой и сырным соусом, 16 шт',
+      sizes: [],
+      doughType: [],
+      additionalProducts: [],
+    },
+    {
+      name: 'Куриные крылья, большая порция',
+      info: '340 гр',
+      prices: [{
+        label: 'none',
+        price: 26000,
+      }],
+      img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/ec11f9ccd55340cf85a1f9fde867d899_292x292.jpeg',
+      description: 'Куриные крылья со специями и ароматом копчения, большая порция',
       sizes: [],
       doughType: [],
       additionalProducts: [],
@@ -443,6 +540,19 @@ export default {
       additionalProducts: [],
     },
     {
+      name: 'Рулетики с ананасами + Рулетики с брусникой, 16 шт',
+      info: '16 шт',
+      prices: [{
+        label: 'none',
+        price: 16000,
+      }],
+      img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/47873e03d3ca413d84318741ebf65c61_292x292.jpeg',
+      description: 'Микс рулетиков со сгущенным молоком: 8 штук с ананасом и корицей, 8 штук с брусникой',
+      sizes: [],
+      doughType: [],
+      additionalProducts: [],
+    },
+    {
       name: 'Молочный коктейль с печеньем Орео',
       info: '0,39 л',
       prices: [{
@@ -451,6 +561,19 @@ export default {
       }],
       img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/f36219a4f0e647e095dc1c667bdd2420_292x292.jpeg',
       description: 'Напиток из молока и мороженого с добавлением дробленого печенья «Орео»',
+      sizes: [],
+      doughType: [],
+      additionalProducts: [],
+    },
+    {
+      name: 'Рулетики с ананасом и корицей, 16 шт',
+      info: '16 шт',
+      prices: [{
+        label: 'none',
+        price: 19000,
+      }],
+      img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/c3d2df268e1c471bb3e28e53ab9a7ff9_292x292.jpeg',
+      description: 'Горячие сладкие рулетики с сочными ананасами и корицей, политые сгущенным молоком, 16 шт',
       sizes: [],
       doughType: [],
       additionalProducts: [],
@@ -536,6 +659,19 @@ export default {
       additionalProducts: [],
     },
     {
+      name: 'Fusetea Черный с лимоном',
+      info: '0,5 л',
+      prices: [{
+        label: 'none',
+        price: 5000,
+      }],
+      img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/0bde0b9c81b64f22a36ae677accb477d_292x292.jpeg',
+      description: '',
+      sizes: [],
+      doughType: [],
+      additionalProducts: [],
+    },
+    {
       name: 'Coca-cola',
       info: '0,5 л',
       prices: [{
@@ -569,6 +705,32 @@ export default {
         price: 5000,
       }],
       img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/1202e7ea026a4c26ad5f50e10c351997_292x292.jpeg',
+      description: '',
+      sizes: [],
+      doughType: [],
+      additionalProducts: [],
+    },
+    {
+      name: 'Сок Апельсин',
+      info: '1 л',
+      prices: [{
+        label: 'none',
+        price: 5000,
+      }],
+      img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Drinks/ru-RU/57fc697b-e57a-4152-83ca-459b2be60938.jpg',
+      description: '',
+      sizes: [],
+      doughType: [],
+      additionalProducts: [],
+    },
+    {
+      name: 'Сок Яблоко',
+      info: '1 л',
+      prices: [{
+        label: 'none',
+        price: 5000,
+      }],
+      img: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Drinks/ru-RU/3c7c14a8-f81f-4e4c-9076-6556d345495e.jpg',
       description: '',
       sizes: [],
       doughType: [],

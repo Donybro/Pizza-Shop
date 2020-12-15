@@ -1,5 +1,5 @@
 <template>
-  <div class='dialogContent'>
+  <div class='dialogContent' @click.stop>
     <div class='image'>
       <img :src='selectedProduct.img'>
     </div>
@@ -134,6 +134,7 @@ export default {
       this.btnIsDisabled = !this.btnIsDisabled;
       this.$store.dispatch('products/setProduct', this.productToBuy);
       this.productToBuy = {};
+      this.closeDialog();
     },
   },
 };

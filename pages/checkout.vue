@@ -14,30 +14,40 @@
       </div>
       <div class='stepper'>
         <div class='first stepCompleted'>
-          <!--          <img class='done' :src='done'>-->
-          1
+          <img class='done' :src='done'>
         </div>
-        <div class='bordered'></div>
-        <div class='second'>2</div>
+        <div class='bordered borderedCompleted'></div>
+        <div class='second stepCompleted'>2</div>
         <div class='bordered'></div>
         <div class='third'>3</div>
       </div>
     </div>
-    <div class='basket'>
-      <h1>Корзина</h1>
-      <div class='productsWrapper'>
-        <cart-product v-for='product in productsInCart' :key='product.productName' :product='product'
-                      class='product' />
+    <div class='checkout'>
+      <h1>Заказ на самовывоз</h1>
+      <div class='mainContent'>
+        <div class='inputs'>
+          <modefied-input label='Имя' class='option' :info-value='userInfo.name' optionName='name' />
+          <modefied-input label='Номер телефона' class='option' optionName='phone' :info-value='userInfo.phone' />
+          <select-adress @open-dialog-adress='openDialogAdress'
+                         :place-holder='getDeliveryinfo.adress'
+                         class='selectAdress'
+          />
+          <select-time class='selectTime' />
+          <payment-methods class='payment' />
+        </div>
+        <div class='orderListWrapper'>
+          <order-list class='orderList' />
+        </div>
       </div>
-      <div v-if='!productsInCart.length' class='price'>
-        Добавьте что-нибудь из меню
-      </div>
-      <div class='price'>
-        Сумма заказа: <span>{{ productsOverallPrice }} сум</span>
-      </div>
+      <dialog-menu :is-dialog-open='isDialogOpen' @close-dialog='isDialogOpen=false'>
+        <dialog-adress-wrapper
+          :activeDeliveryType='activeDeliveryType'
+          @close-dialog='isDialogOpen=false'
+        />
+      </dialog-menu>
       <div class='buttonGroup'>
-        <div @click='$router.push("/")' class='prev'>Вернуться в меню</div>
-        <div @click='orderProduct' class='next'>Оформить заказ</div>
+        <div @click='$router.push("/cart")' class='prev'>Вернуться в корзину</div>
+        <div @click='orderProduct' class='next'>Подтвердить заказ</div>
       </div>
     </div>
   </div>
@@ -47,17 +57,41 @@
 import pizzaLogo from '../assets/img/pizza-logo.svg';
 import done from '../assets/img/done-black-24dp.svg';
 import CartProduct from '../components/cartProduct';
+import ModefiedInput from '../components/modefiedInput';
+import DialogAdressWrapper from '../components/dialogAdressWrapper';
+import DialogMenu from '../components/DialogMenu';
+import SelectAdress from '../components/selectAdress';
+import SelectTime from '../components/selectTime';
+import PaymentMethods from '../components/PaymentMethods';
+import OrderList from '../components/OrderList';
 
 export default {
-  name: 'cart',
-  components: { CartProduct },
+  name: 'checkout',
+  components: {
+    OrderList,
+    PaymentMethods,
+    SelectTime,
+    SelectAdress,
+    DialogMenu,
+    DialogAdressWrapper,
+    CartProduct,
+    ModefiedInput,
+  },
   data() {
     return {
       pizzaLogo,
       done,
+      isDialogOpen: false,
+      activeDeliveryType: '',
     };
   },
   computed: {
+    userInfo() {
+      return this.$store.getters['user/getUserInfo'];
+    },
+    getDeliveryinfo() {
+      return this.$store.getters['delivery/getDeliveryInfo'];
+    },
     productsInCart() {
       return this.$store.getters['products/getProducts'];
     },
@@ -68,14 +102,17 @@ export default {
     },
   },
   methods: {
+    openDialogAdress(deliveryType) {
+      this.isDialogOpen = true;
+      this.activeDeliveryType = deliveryType;
+
+    },
     orderProduct() {
       if (!this.productsInCart.length) {
         this.$router.push('/');
       }
       if (!this.$store.getters['auth/getIsAuth']) {
         this.$router.push('/auth');
-      } else {
-        this.$router.push('/checkout');
       }
     },
   },
@@ -90,6 +127,7 @@ export default {
   height: 100%;
   padding: 45px;
 }
+
 
 .navbar {
   width: 100%;
@@ -148,14 +186,11 @@ export default {
   }
 }
 
-.extra {
-  color: #fe5f1e;
-}
 
 .logoWrapper {
-  cursor: pointer;
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   img {
     width: 38px;
@@ -184,32 +219,36 @@ export default {
   }
 }
 
-.basket {
+.checkout {
   padding: 20px 100px;
   background: #fff;
-
-  .productsWrapper {
-    padding: 50px 0px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    .product {
-      margin-bottom: 10px;
-    }
-  }
 }
 
-.price {
-  padding: 50px 0;
-  font-size: 31px;
-  font-weight: 700;
+.mainContent {
+  display: flex;
+  height: 100%;
+  padding: 40px 0;
+}
 
-  span {
-    font-size: 32px;
-    color: rgb(255, 105, 0);
-    font-weight: 700;
-  }
+.inputs {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.orderListWrapper {
+  width: 50%;
+  padding: 0 70px;
+}
+
+.selectTime {
+  margin: 20px 0;
+}
+
+.orderList {
+  position: sticky;
+  top: 30px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .buttonGroup {

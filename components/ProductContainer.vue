@@ -15,7 +15,7 @@
       <div class='label'>
         {{ product.name }}
       </div>
-      <div class='desc'>
+      <div v-if='product.description' class='desc'>
         {{ product.description }}
       </div>
     </div>
